@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import profilePhoto from '@/assets/NataliaRainyk.jpg';
 
 const About = () => {
   const ref = useRef(null);
@@ -10,32 +11,19 @@ const About = () => {
     <section id="o-mnie" className="section-padding bg-secondary/30">
       <div className="container-wide">
         <div ref={ref} className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Photo Placeholder */}
+          {/* Profile Photo */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-sage-light to-accent overflow-hidden shadow-elevated flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-                  <svg
-                    className="w-12 h-12 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
-                  </svg>
-                </div>
-                <p className="text-sm text-muted-foreground">Zdjęcie profilowe</p>
-              </div>
+            <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-elevated">
+              <img
+                src={profilePhoto}
+                alt="Natalia Rainyk - Psychoterapeutka"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
