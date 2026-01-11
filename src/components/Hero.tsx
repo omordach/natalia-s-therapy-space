@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-bg.jpg';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -20,7 +23,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-primary font-medium tracking-widest uppercase text-sm mb-6"
         >
-          Psychoterapeutka psychodynamiczna
+          {t('hero.subtitle')}
         </motion.p>
 
         <motion.h1
@@ -29,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="heading-display text-foreground mb-6"
         >
-          Natalia Mordach
+          {t('hero.title')}
         </motion.h1>
 
         <motion.p
@@ -38,7 +41,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-body-large max-w-2xl mx-auto mb-10"
         >
-          Pomagam odnaleźć spokój i zrozumienie siebie
+          {t('hero.description')}
         </motion.p>
 
         <motion.div
@@ -47,7 +50,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <a href="#kontakt" className="btn-primary inline-block">
-            Umów wizytę
+            {t('hero.cta')}
           </a>
         </motion.div>
       </div>

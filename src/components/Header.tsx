@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const navItems = [
-  { href: '#o-mnie', label: 'O mnie' },
-  { href: '#oferta', label: 'Oferta' },
-  { href: '#dla-kogo', label: 'Dla kogo' },
-  { href: '#cennik', label: 'Cennik' },
-  { href: '#lokalizacja', label: 'Lokalizacja' },
-  { href: '#kontakt', label: 'Kontakt' },
-];
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Navigation items with translation keys - section IDs remain constant (Requirement 6.2)
+  const navItems = [
+    { href: '#o-mnie', labelKey: 'nav.about' },
+    { href: '#oferta', labelKey: 'nav.services' },
+    { href: '#dla-kogo', labelKey: 'nav.forWho' },
+    { href: '#cennik', labelKey: 'nav.pricing' },
+    { href: '#lokalizacja', labelKey: 'nav.location' },
+    { href: '#kontakt', labelKey: 'nav.contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,12 +48,13 @@ const Header = () => {
         <nav className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="nav-link text-sm">
-              {item.label}
+              {t(item.labelKey)}
             </a>
           ))}
           <a href="#kontakt" className="btn-primary text-sm py-3 px-6">
-            Umów wizytę
+            {t('nav.bookVisit')}
           </a>
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -79,7 +84,7 @@ const Header = () => {
                   className="nav-link text-lg py-2"
                   onClick={handleNavClick}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </a>
               ))}
               <a
@@ -87,8 +92,11 @@ const Header = () => {
                 className="btn-primary text-center mt-4"
                 onClick={handleNavClick}
               >
-                Umów wizytę
+                {t('nav.bookVisit')}
               </a>
+              <div className="flex justify-center mt-4">
+                <LanguageSwitcher />
+              </div>
             </div>
           </motion.nav>
         )}

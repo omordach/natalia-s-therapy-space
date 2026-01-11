@@ -2,10 +2,12 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { MapPin } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Location = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useTranslation();
 
   return (
     <section id="lokalizacja" className="section-padding">
@@ -17,10 +19,10 @@ const Location = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="heading-section text-foreground mb-4">Lokalizacja</h2>
+          <h2 className="heading-section text-foreground mb-4">{t('location.title')}</h2>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <p>Gabinet znajduje się w Warszawie, ul. Marszałkowska 85</p>
+            <p>{t('location.address')}</p>
           </div>
         </motion.div>
 
@@ -38,7 +40,7 @@ const Location = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Lokalizacja gabinetu"
+            title={t('location.mapTitle')}
             className="w-full"
           />
         </motion.div>

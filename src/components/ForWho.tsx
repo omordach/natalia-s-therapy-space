@@ -2,18 +2,20 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Check } from 'lucide-react';
-
-const targetAudience = [
-  'Osoby doświadczające lęku i depresji',
-  'Osoby w kryzysie życiowym',
-  'Osoby z trudnościami w relacjach',
-  'Osoby szukające głębszego zrozumienia siebie',
-  'Osoby doświadczające trudności emocjonalnych',
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 const ForWho = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useTranslation();
+
+  const targetAudience = [
+    t('forWho.items.anxiety'),
+    t('forWho.items.crisis'),
+    t('forWho.items.relationships'),
+    t('forWho.items.selfUnderstanding'),
+    t('forWho.items.emotional'),
+  ];
 
   return (
     <section id="dla-kogo" className="section-padding bg-secondary/30">
@@ -25,16 +27,16 @@ const ForWho = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="heading-section text-foreground mb-4">Dla kogo</h2>
+          <h2 className="heading-section text-foreground mb-4">{t('forWho.title')}</h2>
           <p className="text-body">
-            Psychoterapia może pomóc w wielu trudnościach życiowych
+            {t('forWho.subtitle')}
           </p>
         </motion.div>
 
         <div className="space-y-4">
           {targetAudience.map((item, index) => (
             <motion.div
-              key={item}
+              key={index}
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}

@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "about": "O mnie",
+    "services": "Oferta",
+    "forWho": "Dla kogo",
+    "pricing": "Cennik",
+    "location": "Lokalizacja",
+    "contact": "Kontakt",
+    "bookVisit": "Umów wizytę"
+  },
+  "hero": {
+    "subtitle": "Psychoterapeutka psychodynamiczna",
+    "title": "Natalia Mordach",
+    "description": "Pomagam odnaleźć spokój i zrozumienie siebie",
+    "cta": "Umów wizytę"
+  },
+  "about": {
+    "title": "O mnie",
+    "paragraph1": "Jestem certyfikowaną psychoterapeutką psychodynamiczną. Ukończyłam 4-letnie szkolenie w podejściu psychodynamicznym. Pracuję z osobami dorosłymi, pomagając im zrozumieć źródła ich trudności emocjonalnych i wprowadzić trwałe zmiany w życiu.",
+    "paragraph2": "W swojej pracy kieruję się przekonaniem, że każdy człowiek ma w sobie zasoby do zmiany. Moją rolą jest towarzyszyć w procesie odkrywania i rozumienia siebie.",
+    "certificationsTitle": "Certyfikaty i kwalifikacje",
+    "certifications": {
+      "cert1": {
+        "title": "Certyfikat 1",
+        "description": "Opis certyfikatu 1"
+      },
+      "cert2": {
+        "title": "Certyfikat 2",
+        "description": "Opis certyfikatu 2"
+      },
+      "cert3": {
+        "title": "Certyfikat 3",
+        "description": "Opis certyfikatu 3"
+      },
+      "cert4": {
+        "title": "Certyfikat 4",
+        "description": "Opis certyfikatu 4"
+      }
+    },
+    "placeholder": "Placeholder"
+  },
+  "services": {
+    "title": "Oferta",
+    "subtitle": "Oferuję profesjonalne wsparcie psychoterapeutyczne dostosowane do Twoich potrzeb",
+    "individual": {
+      "title": "Psychoterapia indywidualna",
+      "description": "Długoterminowa praca nad głębokimi wzorcami emocjonalnymi i relacyjnymi."
+    },
+    "consultation": {
+      "title": "Konsultacje psychologiczne",
+      "description": "Krótkoterminowe wsparcie w konkretnych trudnościach życiowych."
+    },
+    "online": {
+      "title": "Sesje online",
+      "description": "Możliwość spotkań przez platformy wideo dla osób spoza Warszawy."
+    }
+  },
+  "forWho": {
+    "title": "Dla kogo",
+    "subtitle": "Psychoterapia może pomóc w wielu trudnościach życiowych",
+    "items": {
+      "anxiety": "Osoby doświadczające lęku i depresji",
+      "crisis": "Osoby w kryzysie życiowym",
+      "relationships": "Osoby z trudnościami w relacjach",
+      "selfUnderstanding": "Osoby szukające głębszego zrozumienia siebie",
+      "emotional": "Osoby doświadczające trudności emocjonalnych"
+    }
+  },
+  "howIWork": {
+    "title": "Jak pracuję",
+    "paragraph1": "Moje podejście opiera się na psychoterapii psychodynamicznej. Zakłada ona, że zrozumienie przeszłych doświadczeń pozwala rozwiązać obecne trudności oraz przerwać bolesne, powtarzające się schematy.",
+    "paragraph2": "W procesie terapeutycznym wykorzystuję również metodę mentalizacji (MBT). Pomaga ona lepiej rozumieć stany emocjonalne — zarówno własne, jak i innych osób. Rozwijanie tej zdolności pozwala na odzyskanie stabilności wewnętrznej oraz budowanie zdrowszych, bardziej satysfakcjonujących relacji.",
+    "principlesTitle": "Kluczowe zasady współpracy:",
+    "principles": {
+      "safety": {
+        "title": "Bezpieczeństwo i zaufanie",
+        "description": "Zapewniam przestrzeń wolną od oceniania, opartą na empatii i pełnej poufności."
+      },
+      "source": {
+        "title": "Praca u źródła",
+        "description": "Celem nie jest jedynie doraźne złagodzenie objawów, lecz dotarcie do ich przyczyn, co prowadzi do trwałej zmiany."
+      },
+      "reflection": {
+        "title": "Refleksja i świadomość",
+        "description": "Wspólna praca nad zrozumieniem procesów wewnętrznych pozwala na odzyskanie poczucia wpływu na własne życie."
+      },
+      "professionalism": {
+        "title": "Profesjonalizm",
+        "description": "Praktyka prowadzona jest zgodnie ze standardami etycznymi, z dbałością o komfort i dobro pacjenta."
+      }
+    },
+    "conclusion": "Celem terapii jest głębokie zrozumienie siebie, które staje się fundamentem do trwałej poprawy jakości życia."
+  },
+  "pricing": {
+    "title": "Cennik",
+    "disclaimer": "Ceny mogą ulec zmianie. Aktualne informacje potwierdzam podczas umawiania wizyty.",
+    "items": {
+      "individual": {
+        "title": "Sesja indywidualna",
+        "duration": "50 min",
+        "price": "190 zł"
+      },
+      "consultation": {
+        "title": "Konsultacja wstępna",
+        "duration": "50 min",
+        "price": "190 zł"
+      },
+      "online": {
+        "title": "Sesja online",
+        "duration": "50 min",
+        "price": "190 zł"
+      }
+    }
+  },
+  "location": {
+    "title": "Lokalizacja",
+    "address": "Gabinet znajduje się w Warszawie, ul. Marszałkowska 85",
+    "mapTitle": "Lokalizacja gabinetu"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Odpowiadam na wiadomości w ciągu 24-48 godzin",
+    "infoTitle": "Dane kontaktowe",
+    "infoNote": "Aby umówić wizytę, proszę o kontakt telefoniczny lub mailowy. Chętnie odpowiem na wszystkie pytania dotyczące terapii.",
+    "form": {
+      "name": "Imię",
+      "namePlaceholder": "Twoje imię",
+      "email": "Email",
+      "emailPlaceholder": "twoj@email.pl",
+      "phone": "Telefon",
+      "phonePlaceholder": "+48 XXX XXX XXX",
+      "message": "Wiadomość",
+      "messagePlaceholder": "W czym mogę pomóc?",
+      "submit": "Wyślij wiadomość"
+    },
+    "toast": {
+      "successTitle": "Wiadomość wysłana",
+      "successDescription": "Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.",
+      "errorTitle": "Błąd",
+      "errorDescription": "Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio."
+    }
+  },
+  "footer": {
+    "name": "Natalia Mordach",
+    "subtitle": "Psychoterapeutka psychodynamiczna",
+    "privacyPolicy": "Polityka prywatności",
+    "copyright": "© {{year}} Natalia Mordach. Wszelkie prawa zastrzeżone."
+  }
+}

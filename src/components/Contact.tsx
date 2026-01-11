@@ -3,11 +3,13 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, Send, MessageCircle, Facebook } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -30,8 +32,8 @@ const Contact = () => {
 
       if (response.ok) {
         toast({
-          title: 'Wiadomość wysłana',
-          description: 'Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.',
+          title: t('contact.toast.successTitle'),
+          description: t('contact.toast.successDescription'),
         });
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
@@ -39,8 +41,8 @@ const Contact = () => {
       }
     } catch (error) {
       toast({
-        title: 'Błąd',
-        description: 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio.',
+        title: t('contact.toast.errorTitle'),
+        description: t('contact.toast.errorDescription'),
         variant: 'destructive',
       });
     }
@@ -62,9 +64,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-section text-foreground mb-4">Kontakt</h2>
+          <h2 className="heading-section text-foreground mb-4">{t('contact.title')}</h2>
           <p className="text-body">
-            Odpowiadam na wiadomości w ciągu 24-48 godzin
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="heading-card text-foreground mb-6">Dane kontaktowe</h3>
+              <h3 className="heading-card text-foreground mb-6">{t('contact.infoTitle')}</h3>
               <div className="space-y-4">
                 {/* <a
                   href="mailto:kontakt@nataliamordach.pl"
@@ -132,8 +134,7 @@ const Contact = () => {
 
             <div className="bg-card p-6 rounded-xl shadow-soft">
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Aby umówić wizytę, proszę o kontakt telefoniczny lub mailowy. 
-                Chętnie odpowiem na wszystkie pytania dotyczące terapii.
+                {t('contact.infoNote')}
               </p>
             </div>
           </motion.div>
@@ -155,7 +156,7 @@ const Contact = () => {
             <input type="hidden" name="bot-field" />
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                Imię
+                {t('contact.form.name')}
               </label>
               <input
                 type="text"
@@ -165,13 +166,13 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                placeholder="Twoje imię"
+                placeholder={t('contact.form.namePlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                Email
+                {t('contact.form.email')}
               </label>
               <input
                 type="email"
@@ -181,13 +182,13 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                placeholder="twoj@email.pl"
+                placeholder={t('contact.form.emailPlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                Telefon
+                {t('contact.form.phone')}
               </label>
               <input
                 type="tel"
@@ -196,13 +197,13 @@ const Contact = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                placeholder="+48 XXX XXX XXX"
+                placeholder={t('contact.form.phonePlaceholder')}
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                Wiadomość
+                {t('contact.form.message')}
               </label>
               <textarea
                 id="message"
@@ -212,13 +213,13 @@ const Contact = () => {
                 required
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
-                placeholder="W czym mogę pomóc?"
+                placeholder={t('contact.form.messagePlaceholder')}
               />
             </div>
 
             <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
               <Send className="w-4 h-4" />
-              Wyślij wiadomość
+              {t('contact.form.submit')}
             </button>
           </motion.form>
         </div>

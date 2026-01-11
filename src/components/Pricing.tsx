@@ -2,28 +2,33 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Clock } from 'lucide-react';
-
-const pricingItems = [
-  {
-    title: 'Sesja indywidualna',
-    duration: '50 min',
-    price: '190 zł',
-  },
-  {
-    title: 'Konsultacja wstępna',
-    duration: '50 min',
-    price: '190 zł',
-  },
-  {
-    title: 'Sesja online',
-    duration: '50 min',
-    price: '190 zł',
-  },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Pricing = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useTranslation();
+
+  const pricingItems = [
+    {
+      key: 'individual',
+      title: t('pricing.items.individual.title'),
+      duration: t('pricing.items.individual.duration'),
+      price: t('pricing.items.individual.price'),
+    },
+    {
+      key: 'consultation',
+      title: t('pricing.items.consultation.title'),
+      duration: t('pricing.items.consultation.duration'),
+      price: t('pricing.items.consultation.price'),
+    },
+    {
+      key: 'online',
+      title: t('pricing.items.online.title'),
+      duration: t('pricing.items.online.duration'),
+      price: t('pricing.items.online.price'),
+    },
+  ];
 
   return (
     <section id="cennik" className="section-padding bg-secondary/30">
@@ -35,13 +40,13 @@ const Pricing = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-section text-foreground mb-4">Cennik</h2>
+          <h2 className="heading-section text-foreground mb-4">{t('pricing.title')}</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {pricingItems.map((item, index) => (
             <motion.div
-              key={item.title}
+              key={item.key}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -65,7 +70,7 @@ const Pricing = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-muted-foreground text-sm mt-10 max-w-2xl mx-auto"
         >
-          Ceny mogą ulec zmianie. Aktualne informacje potwierdzam podczas umawiania wizyty.
+          {t('pricing.disclaimer')}
         </motion.p>
       </div>
     </section>

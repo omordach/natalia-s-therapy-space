@@ -9,34 +9,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { useTranslation } from '@/hooks/useTranslation';
 
-// Placeholder certification data
-const certifications = [
-  {
-    id: 1,
-    title: 'Certyfikat 1',
-    description: 'Opis certyfikatu 1',
-  },
-  {
-    id: 2,
-    title: 'Certyfikat 2',
-    description: 'Opis certyfikatu 2',
-  },
-  {
-    id: 3,
-    title: 'Certyfikat 3',
-    description: 'Opis certyfikatu 3',
-  },
-  {
-    id: 4,
-    title: 'Certyfikat 4',
-    description: 'Opis certyfikatu 4',
-  },
-];
+// Certification keys for translation lookup
+const certificationKeys = ['cert1', 'cert2', 'cert3', 'cert4'] as const;
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useTranslation();
 
   return (
     <section id="o-mnie" className="section-padding bg-secondary/30">
@@ -52,7 +33,7 @@ const About = () => {
             <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-elevated">
               <img
                 src={profilePhoto}
-                alt="Natalia Rainyk - Psychoterapeutka"
+                alt={t('about.title')}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -64,16 +45,13 @@ const About = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="heading-section text-foreground mb-8">O mnie</h2>
+            <h2 className="heading-section text-foreground mb-8">{t('about.title')}</h2>
             <div className="space-y-6 text-body">
               <p>
-                Jestem certyfikowaną psychoterapeutką psychodynamiczną. Ukończyłam 4-letnie
-                szkolenie w podejściu psychodynamicznym. Pracuję z osobami dorosłymi, pomagając
-                im zrozumieć źródła ich trudności emocjonalnych i wprowadzić trwałe zmiany w życiu.
+                {t('about.paragraph1')}
               </p>
               <p>
-                W swojej pracy kieruję się przekonaniem, że każdy człowiek ma w sobie zasoby
-                do zmiany. Moją rolą jest towarzyszyć w procesie odkrywania i rozumienia siebie.
+                {t('about.paragraph2')}
               </p>
             </div>
           </motion.div>
@@ -87,7 +65,7 @@ const About = () => {
           className="mt-16"
         >
           <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
-            Certyfikaty i kwalifikacje
+            {t('about.certificationsTitle')}
           </h3>
 
           <div className="max-w-5xl mx-auto">
@@ -99,8 +77,8 @@ const About = () => {
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {certifications.map((cert) => (
-                  <CarouselItem key={cert.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {certificationKeys.map((certKey) => (
+                  <CarouselItem key={certKey} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                     <div className="p-1">
                       <div className="bg-card rounded-lg overflow-hidden shadow-elevated hover:shadow-elevated-hover transition-shadow duration-300">
                         {/* Placeholder image - aspect ratio 4:3 for certificates */}
@@ -123,17 +101,17 @@ const About = () => {
                               </svg>
                             </div>
                             <p className="text-muted-foreground font-medium">
-                              Placeholder
+                              {t('about.placeholder')}
                             </p>
                           </div>
                         </div>
                         {/* Certificate info */}
                         <div className="p-6">
                           <h3 className="text-lg font-semibold text-foreground mb-2">
-                            {cert.title}
+                            {t(`about.certifications.${certKey}.title`)}
                           </h3>
                           <p className="text-sm text-muted-foreground">
-                            {cert.description}
+                            {t(`about.certifications.${certKey}.description`)}
                           </p>
                         </div>
                       </div>
