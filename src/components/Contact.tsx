@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, Send } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle, Facebook } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -79,7 +79,7 @@ const Contact = () => {
             <div>
               <h3 className="heading-card text-foreground mb-6">Dane kontaktowe</h3>
               <div className="space-y-4">
-                <a
+                {/* <a
                   href="mailto:kontakt@nataliamordach.pl"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
@@ -87,15 +87,45 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <span>kontakt@nataliamordach.pl</span>
-                </a>
+                </a> */}
                 <a
-                  href="tel:+48XXXXXXXXX"
+                  href="tel:+48785422814"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
-                  <span>+48 XXX XXX XXX</span>
+                  <span>+48 785 422 814</span>
+                </a>
+                <a
+                  href="tg://resolve?domain=NataliaRainyk"
+                  title="Telegram"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
+                    <Send className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>Telegram</span>
+                </a>
+                <a
+                  href="https://wa.me/48785422814"
+                  title="WhatsApp"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
+                    <MessageCircle className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="https://m.me/RainykPsyHelp"
+                  title="Facebook"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
+                    <Facebook className="w-5 h-5 text-primary" />
+                  </div>
+                  <span>Facebook</span>
                 </a>
               </div>
             </div>

@@ -7,17 +7,17 @@ const pricingItems = [
   {
     title: 'Sesja indywidualna',
     duration: '50 min',
-    price: '200 zł',
+    price: '190 zł',
   },
   {
     title: 'Konsultacja wstępna',
     duration: '50 min',
-    price: '200 zł',
+    price: '190 zł',
   },
   {
     title: 'Sesja online',
     duration: '50 min',
-    price: '200 zł',
+    price: '190 zł',
   },
 ];
 

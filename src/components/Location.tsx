@@ -20,7 +20,7 @@ const Location = () => {
           <h2 className="heading-section text-foreground mb-4">Lokalizacja</h2>
           <div className="flex items-center justify-center gap-2 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <p>Gabinet znajduje się w Warszawie</p>
+            <p>Gabinet znajduje się w Warszawie, ul. Marszałkowska 85</p>
           </div>
         </motion.div>
 
