@@ -16,13 +16,34 @@ const Contact = () => {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: 'Wiadomość wysłana',
-      description: 'Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.',
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+
+    const form = e.target as HTMLFormElement;
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Wiadomość wysłana',
+          description: 'Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.',
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      toast({
+        title: 'Błąd',
+        description: 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleChange = (
@@ -89,12 +110,19 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-card p-8 rounded-2xl shadow-card space-y-6"
           >
+            {/* Netlify form fields */}
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                 Imię
