@@ -2,6 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import profilePhoto from '@/assets/NataliaRainyk.jpg';
+import masterCert from '@/assets/Master.png';
+import annaFreudCert from '@/assets/AnnaFreud.png';
+import zswppDyplom from '@/assets/ZSWPP-Dyplom.png';
+import zswppZ from '@/assets/ZSWPP-Z.png';
 import {
   Carousel,
   CarouselContent,
@@ -13,6 +17,14 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 // Certification keys for translation lookup
 const certificationKeys = ['cert1', 'cert2', 'cert3', 'cert4'] as const;
+
+// Certificate images mapping
+const certificateImages: Record<typeof certificationKeys[number], string> = {
+  cert1: masterCert,
+  cert2: annaFreudCert,
+  cert3: zswppDyplom,
+  cert4: zswppZ,
+};
 
 const About = () => {
   const ref = useRef(null);
@@ -81,29 +93,13 @@ const About = () => {
                   <CarouselItem key={certKey} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                     <div className="p-1">
                       <div className="bg-card rounded-lg overflow-hidden shadow-elevated hover:shadow-elevated-hover transition-shadow duration-300">
-                        {/* Placeholder image - aspect ratio 4:3 for certificates */}
-                        <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/20 flex items-center justify-center">
-                          <div className="text-center p-8">
-                            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-10 w-10 text-primary"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                                />
-                              </svg>
-                            </div>
-                            <p className="text-muted-foreground font-medium">
-                              {t('about.placeholder')}
-                            </p>
-                          </div>
+                        {/* Certificate image */}
+                        <div className="aspect-[4/3] bg-secondary/10 overflow-hidden">
+                          <img
+                            src={certificateImages[certKey]}
+                            alt={t(`about.certifications.${certKey}.title`)}
+                            className="w-full h-full object-contain"
+                          />
                         </div>
                         {/* Certificate info */}
                         <div className="p-6">

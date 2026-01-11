@@ -21,20 +21,20 @@
     "certificationsTitle": "Certyfikaty i kwalifikacje",
     "certifications": {
       "cert1": {
-        "title": "Certyfikat 1",
-        "description": "Opis certyfikatu 1"
+        "title": "Dyplom Magistra",
+        "description": "Master of Science in Psychology – specjalność: Psychologia kliniczna z podstawami terapii poznawczo-behawioralnej (wydany przez Ukraiński Katolicki Uniwersytet)"
       },
       "cert2": {
-        "title": "Certyfikat 2",
-        "description": "Opis certyfikatu 2"
+        "title": "Zaświadczenie MBT BASIC TRAINING",
+        "description": "Ukończenie całościowego szkolenia „Psychoterapia Oparta na Mentalizacji – Stopień Pierwszy" (wydane przez Anna Freud Centre i Pracownię Psychoterapii HUMANI)"
       },
       "cert3": {
-        "title": "Certyfikat 3",
-        "description": "Opis certyfikatu 3"
+        "title": "Dyplom",
+        "description": "Dyplom ukończenia Zaawansowanej Szkoły Współczesnej Psychoterapii Psychodynamicznej (edycja 2023–2025)"
       },
       "cert4": {
-        "title": "Certyfikat 4",
-        "description": "Opis certyfikatu 4"
+        "title": "Zaświadczenie",
+        "description": "Potwierdzenie ukończenia Zaawansowanej Szkoły Współczesnej Psychoterapii Psychodynamicznej (wraz z informacją o 350 godzinach zajęć)"
       }
     },
     "placeholder": "Placeholder"
