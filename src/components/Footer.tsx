@@ -1,0 +1,32 @@
+const Footer = () => {
+  return (
+    <footer className="py-12 border-t border-border">
+      <div className="container-wide">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <p className="font-heading text-xl font-semibold text-foreground mb-2">
+              Natalia Mordach
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Psychoterapeuta psychodynamiczny
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <a href="#" className="hover:text-primary transition-colors">
+              Polityka prywatności
+            </a>
+          </div>
+        </div>
+
+        <div className="divider-sage my-8" />
+
+        <p className="text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Natalia Mordach. Wszelkie prawa zastrzeżone.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
