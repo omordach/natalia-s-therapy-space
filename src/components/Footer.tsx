@@ -8,7 +8,7 @@ const Footer = () => {
               Natalia Mordach
             </p>
             <p className="text-sm text-muted-foreground">
-              Psychoterapeuta psychodynamiczny
+              Psychoterapeutka psychodynamiczna
             </p>
           </div>
 

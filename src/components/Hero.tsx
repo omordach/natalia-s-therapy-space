@@ -20,7 +20,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-primary font-medium tracking-widest uppercase text-sm mb-6"
         >
-          Psychoterapeuta psychodynamiczny
+          Psychoterapeutka psychodynamiczna
         </motion.p>
 
         <motion.h1

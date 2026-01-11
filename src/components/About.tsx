@@ -48,8 +48,8 @@ const About = () => {
             <h2 className="heading-section text-foreground mb-8">O mnie</h2>
             <div className="space-y-6 text-body">
               <p>
-                Jestem certyfikowanym psychoterapeutą psychodynamicznym. Ukończyłam 4-letnie 
-                szkolenie w podejściu psychodynamicznym. Pracuję z osobami dorosłymi, pomagając 
+                Jestem certyfikowaną psychoterapeutką psychodynamiczną. Ukończyłam 4-letnie
+                szkolenie w podejściu psychodynamicznym. Pracuję z osobami dorosłymi, pomagając
                 im zrozumieć źródła ich trudności emocjonalnych i wprowadzić trwałe zmiany w życiu.
               </p>
               <p>
