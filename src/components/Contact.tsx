@@ -5,28 +5,35 @@ import { Mail, Phone, Send, MessageCircle, Facebook } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 const Contact = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { toast } = useToast();
   const { t } = useTranslation();
-  
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.target as HTMLFormElement;
+    const form = e.currentTarget;
 
     try {
-      const formData = new FormData(form);
+      const formDataObj = new FormData(form);
       const formEntries: Record<string, string> = {};
-      formData.forEach((value, key) => {
+      formDataObj.forEach((value, key) => {
         formEntries[key] = value.toString();
       });
 
