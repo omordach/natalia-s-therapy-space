@@ -41,7 +41,7 @@ const Header = () => {
     >
       <div className="container-wide flex items-center justify-between">
         <a href="#" className="font-heading text-2xl md:text-3xl font-semibold text-foreground">
-          Natalia Mordach
+          Natalia Rainyk
         </a>
 
         {/* Desktop Navigation */}

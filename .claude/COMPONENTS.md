@@ -101,7 +101,7 @@ const navItems = [
 
 **Content Structure:**
 - Subtitle: "Psychoterapeuta psychodynamiczny"
-- Main heading: "Natalia Mordach"
+- Main heading: "Natalia Rainyk"
 - Description: "Pomagam odnaleźć spokój i zrozumienie siebie"
 - CTA: "Umów wizytę" → #kontakt
 
@@ -293,7 +293,7 @@ const pricingItems = [
 ```
 
 **Contact Information:**
-- Email: kontakt@nataliamordach.pl
+- Email: kontakt@nataliarainyk.pl
 - Phone: +48 XXX XXX XXX (placeholder)
 
 **Form Behavior:**

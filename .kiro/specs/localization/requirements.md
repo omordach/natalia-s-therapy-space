@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document specifies the requirements for adding multi-language support (localization) to the Natalia Mordach psychotherapy website. The system will support Polish (pl) as the default language and Ukrainian (uk) as an additional language, allowing users to switch between languages seamlessly while preserving all functionality and user experience.
+This document specifies the requirements for adding multi-language support (localization) to the Natalia Rainyk psychotherapy website. The system will support Polish (pl) as the default language and Ukrainian (uk) as an additional language, allowing users to switch between languages seamlessly while preserving all functionality and user experience.
 
 ## Glossary
 

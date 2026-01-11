@@ -1,7 +1,7 @@
 # Product Overview
 
 ## What is this?
-A professional portfolio and landing page for Natalia Mordach, a psychodynamic psychotherapist based in Poland.
+A professional portfolio and landing page for Natalia Rainyk, a psychodynamic psychotherapist based in Poland.
 
 ## Purpose
 - Showcase therapy services and professional credentials

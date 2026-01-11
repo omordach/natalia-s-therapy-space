@@ -10,7 +10,7 @@
   },
   "hero": {
     "subtitle": "Psychoterapeutka psychodynamiczna",
-    "title": "Natalia Mordach",
+    "title": "Natalia Rainyk",
     "description": "Pomagam odnaleźć spokój i zrozumienie siebie",
     "cta": "Umów wizytę"
   },
@@ -141,9 +141,9 @@
     }
   },
   "footer": {
-    "name": "Natalia Mordach",
+    "name": "Natalia Rainyk",
     "subtitle": "Psychoterapeutka psychodynamiczna",
     "privacyPolicy": "Polityka prywatności",
-    "copyright": "© {{year}} Natalia Mordach. Wszelkie prawa zastrzeżone."
+    "copyright": "© {{year}} Natalia Rainyk. Wszelkie prawa zastrzeżone."
   }
 }

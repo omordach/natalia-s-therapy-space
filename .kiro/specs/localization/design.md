@@ -2,7 +2,7 @@
 
 ## Overview
 
-This design document outlines the architecture and implementation approach for adding multi-language support (Polish and Ukrainian) to the Natalia Mordach psychotherapy website. The solution uses React Context for state management, JSON-based translation files, and a custom hook-based API for accessing translations throughout the application.
+This design document outlines the architecture and implementation approach for adding multi-language support (Polish and Ukrainian) to the Natalia Rainyk psychotherapy website. The solution uses React Context for state management, JSON-based translation files, and a custom hook-based API for accessing translations throughout the application.
 
 ## Architecture
 
@@ -96,7 +96,7 @@ A UI component displaying language options:
   },
   "hero": {
     "subtitle": "Psychoterapeutka psychodynamiczna",
-    "title": "Natalia Mordach",
+    "title": "Natalia Rainyk",
     "description": "Pomagam odnaleźć spokój i zrozumienie siebie"
   },
   // ... more sections

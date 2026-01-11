@@ -4,7 +4,7 @@
 
 **Project Name:** Natalia's Therapy Space
 **Project Type:** Psychotherapist Portfolio & Landing Page
-**Purpose:** Professional website for psychotherapist Natalia Mordach showcasing services, pricing, and contact information
+**Purpose:** Professional website for psychotherapist Natalia Rainyk showcasing services, pricing, and contact information
 **Language:** Polish (pl)
 
 ## Technology Stack
