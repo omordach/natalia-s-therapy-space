@@ -24,10 +24,16 @@ const Contact = () => {
     const form = e.target as HTMLFormElement;
 
     try {
+      const formData = new FormData(form);
+      const formEntries: Record<string, string> = {};
+      formData.forEach((value, key) => {
+        formEntries[key] = value.toString();
+      });
+
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form) as any).toString(),
+        body: new URLSearchParams(formEntries).toString(),
       });
 
       if (response.ok) {
