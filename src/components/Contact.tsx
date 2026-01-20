@@ -95,13 +95,13 @@ const Contact = () => {
               <h3 className="heading-card text-foreground mb-6">{t('contact.infoTitle')}</h3>
               <div className="space-y-4">
                 {/* <a
-                  href="mailto:kontakt@nataliarainyk.pl"
+                  href="mailto:taska.mail@gmail.com"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
-                  <span>kontakt@nataliarainyk.pl</span>
+                  <span>taska.mail@gmail.com</span>
                 </a> */}
                 <a
                   href="tel:+48785422814"
