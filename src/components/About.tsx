@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import profilePhoto from '@/assets/NataliaRainyk.jpg';
+import profilePhoto from '@/assets/NataliaMordach.jpg';
 import masterCert from '@/assets/Master.png';
 import annaFreudCert from '@/assets/AnnaFreud.png';
 import zswppDyplom from '@/assets/ZSWPP-Dyplom.png';
