@@ -34,13 +34,13 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft py-4'
-          : 'bg-transparent py-6'
+        ? 'bg-background/95 backdrop-blur-md shadow-soft py-4'
+        : 'bg-transparent py-6'
         }`}
     >
       <div className="container-wide flex items-center justify-between">
         <a href="#" className="font-heading text-2xl md:text-3xl font-semibold text-foreground">
-          Natalia Rainyk
+          Natalia Mordach
         </a>
 
         {/* Desktop Navigation */}
