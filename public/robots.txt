@@ -10,6 +10,29 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI Crawlers and LLMs
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: *
 Allow: /
+
+# AI-specific resources
 Allow: /llms.txt
+Allow: /ai-readme.md
+Allow: /.well-known/ai-plugin.json
