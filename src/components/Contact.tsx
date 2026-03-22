@@ -115,6 +115,8 @@ const Contact = () => {
                 <a
                   href="tg://resolve?domain=NataliaRainyk"
                   title="Telegram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
@@ -125,6 +127,8 @@ const Contact = () => {
                 <a
                   href="https://wa.me/48785422814"
                   title="WhatsApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
@@ -135,6 +139,8 @@ const Contact = () => {
                 <a
                   href="https://m.me/RainykPsyHelp"
                   title="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
