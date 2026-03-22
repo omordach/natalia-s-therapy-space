@@ -43,10 +43,12 @@ const About = () => {
             className="flex justify-center"
           >
             <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-elevated">
+              {/* Bolt Optimization: Lazy load below-the-fold profile image */}
               <img
                 src={profilePhoto}
                 alt={t('about.title')}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>
@@ -95,10 +97,12 @@ const About = () => {
                       <div className="bg-card rounded-lg overflow-hidden shadow-elevated hover:shadow-elevated-hover transition-shadow duration-300">
                         {/* Certificate image */}
                         <div className="aspect-[4/3] bg-secondary/10 overflow-hidden">
+                          {/* Bolt Optimization: Lazy load heavy certificate images (~2.4MB total) */}
                           <img
                             src={certificateImages[certKey]}
                             alt={t(`about.certifications.${certKey}.title`)}
                             className="w-full h-full object-contain"
+                            loading="lazy"
                           />
                         </div>
                         {/* Certificate info */}
