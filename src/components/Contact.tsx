@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, Send, MessageCircle, Facebook } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle, Facebook, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -24,11 +24,13 @@ const Contact = () => {
     phone: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
+    setIsSubmitting(true);
 
     try {
       const formDataObj = new FormData(form);
@@ -58,6 +60,8 @@ const Contact = () => {
         description: t('contact.toast.errorDescription'),
         variant: 'destructive',
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -230,8 +234,12 @@ const Contact = () => {
               />
             </div>
 
-            <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
-              <Send className="w-4 h-4" />
+            <button
+              type="submit"
+              className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
               {t('contact.form.submit')}
             </button>
           </motion.form>
