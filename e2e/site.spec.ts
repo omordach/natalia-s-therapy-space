@@ -55,6 +55,11 @@ test("submits the contact form", async ({ page }) => {
   await form.getByRole("button").click();
 
   await expect(page.getByText("Wiadomość wysłana", { exact: true })).toBeVisible();
+  // The toast's enter animation comes from the Tailwind animation utilities (animate-in, slide-in-*).
+  const toastAnimation = await page
+    .locator("li[data-state='open']")
+    .evaluate((el) => getComputedStyle(el).animationName);
+  expect(toastAnimation).not.toBe("none");
   expect(posted?.get("form-name")).toBe("contact");
   expect(posted?.get("name")).toBe("Jan");
 });
