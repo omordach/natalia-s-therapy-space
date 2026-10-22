@@ -30,9 +30,14 @@ export const test = base.extend<{ consoleErrors: string[] }>({
 
     await page.route(`${baseURL}/**`, async (route) => {
       if (route.request().method() !== "GET") return route.fallback();
-      const response = await route.fetch();
       const { pathname } = new URL(route.request().url());
-      await route.fulfill({ response, headers: { ...response.headers(), ...netlifyHeadersFor(pathname) } });
+      try {
+        const response = await route.fetch();
+        await route.fulfill({ response, headers: { ...response.headers(), ...netlifyHeadersFor(pathname) } });
+      } catch (error) {
+        // A navigation (e.g. reload) can cancel an in-flight request; that is not a test failure.
+        if (!/disposed|closed|Route is already handled/i.test(String(error))) throw error;
+      }
     });
     await page.addInitScript(() => {
       document.addEventListener("securitypolicyviolation", (e) =>
