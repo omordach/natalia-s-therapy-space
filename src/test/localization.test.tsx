@@ -62,7 +62,11 @@ describe("LocalizationProvider", () => {
 
   it("throws when used outside the provider", () => {
     vi.spyOn(console, "error").mockImplementation(() => {});
+    // React 18 re-dispatches render errors as window "error" events, which jsdom would print.
+    const silence = (e: ErrorEvent) => e.preventDefault();
+    window.addEventListener("error", silence);
     expect(() => renderHook(() => useTranslation())).toThrow(/LocalizationProvider/);
+    window.removeEventListener("error", silence);
   });
 });
 
