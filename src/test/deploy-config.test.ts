@@ -8,7 +8,9 @@ const read = (file: string) => readFileSync(resolve(root, file), "utf8");
 
 const netlify = parse(read("netlify.toml")) as {
   build: { environment?: { NODE_VERSION?: string } };
+  headers?: { for: string; values: Record<string, string> }[];
 };
+const headersFor = (path: string) => netlify.headers?.find((h) => h.for === path)?.values ?? {};
 const pkg = JSON.parse(read("package.json"));
 const ciMatrix = read(".github/workflows/health-check.yml").match(/node-version:\s*\[([^\]]+)\]/)?.[1];
 
@@ -27,5 +29,20 @@ describe("Node.js version", () => {
   it("CI, Netlify and package.json engines use the same major", () => {
     expect(ciMajor).toBe(netlifyMajor);
     expect(enginesMajor).toBe(netlifyMajor);
+  });
+});
+
+describe("Netlify response headers", () => {
+  it("sets baseline security headers on every page", () => {
+    expect(headersFor("/*")).toMatchObject({
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+    });
+    expect(headersFor("/*")["Permissions-Policy"]).toMatch(/camera=\(\)/);
+  });
+
+  it("caches fingerprinted build assets immutably", () => {
+    expect(headersFor("/assets/*")["Cache-Control"]).toBe("public, max-age=31536000, immutable");
   });
 });
