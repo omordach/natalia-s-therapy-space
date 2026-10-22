@@ -71,3 +71,23 @@ describe("Content-Security-Policy", () => {
     expect(directives["script-src"]).not.toContain("'unsafe-eval'");
   });
 });
+
+describe("/.well-known/ on Netlify", () => {
+  const redirects = (parse(read("netlify.toml")) as {
+    redirects: { from: string; to: string; status?: number; force?: boolean }[];
+  }).redirects;
+  const wellKnown = redirects.findIndex((r) => r.from === "/.well-known/*");
+  const spaFallback = redirects.findIndex((r) => r.from === "/*");
+
+  // Without this, the SPA fallback answers e.g. /.well-known/ai-catalog.json with index.html (200),
+  // which agents and Lighthouse's ARD audit then fail to parse as JSON.
+  it("answers missing files with 404 before the SPA fallback", () => {
+    expect(wellKnown).toBeGreaterThanOrEqual(0);
+    expect(wellKnown).toBeLessThan(spaFallback);
+    expect(redirects[wellKnown].status).toBe(404);
+  });
+
+  it("still serves files that exist there (rule is not forced)", () => {
+    expect(redirects[wellKnown].force ?? false).toBe(false);
+  });
+});

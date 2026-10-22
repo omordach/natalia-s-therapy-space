@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# Missing discovery files (e.g. ai-catalog.json) must be a real 404, not the SPA page with 200.
+# Not forced, so files that exist in public/.well-known/ are still served.
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/index.html"
+  status = 404
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
