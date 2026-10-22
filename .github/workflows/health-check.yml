@@ -32,13 +32,22 @@ jobs:
       run: npm run lint
 
     - name: Run TypeScript type check
-      run: npx tsc --noEmit
+      run: npm run typecheck
+
+    - name: Run unit tests
+      run: npm test
 
     - name: Build project
       run: npm run build
 
     - name: Run health checks
       run: npm run health-check
+
+    - name: Install Playwright browser
+      run: npx playwright install --with-deps chromium
+
+    - name: Run e2e tests
+      run: npx playwright test --project=chromium
 
     - name: Check build output exists
       run: |
