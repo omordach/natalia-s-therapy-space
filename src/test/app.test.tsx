@@ -1,9 +1,17 @@
 import { describe, expect, it, vi } from "vitest";
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "@/App";
-import { render } from "@testing-library/react";
 
 describe("App routing", () => {
+  // React Router warns once per module instance, so this must be the first render in the file.
+  it("is ready for the next React Router major (no future-flag warnings)", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    window.history.pushState({}, "", "/");
+    render(<App />);
+    const routerWarnings = warn.mock.calls.filter(([msg]) => String(msg).includes("React Router"));
+    expect(routerWarnings).toEqual([]);
+  });
+
   it("renders the home page at /", () => {
     window.history.pushState({}, "", "/");
     const { container } = render(<App />);
