@@ -172,7 +172,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-card p-8 rounded-2xl shadow-card space-y-6"
+            className="bg-card p-8 pt-14 rounded-2xl shadow-card space-y-6"
           >
             {/* Netlify form fields */}
             <input type="hidden" name="form-name" value="contact" />
@@ -188,7 +188,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-hidden focus:ring-2 focus:ring-primary/30 transition-all"
                 placeholder={t('contact.form.namePlaceholder')}
               />
             </div>
@@ -204,7 +204,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-hidden focus:ring-2 focus:ring-primary/30 transition-all"
                 placeholder={t('contact.form.emailPlaceholder')}
               />
             </div>
@@ -219,7 +219,7 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-hidden focus:ring-2 focus:ring-primary/30 transition-all"
                 placeholder={t('contact.form.phonePlaceholder')}
               />
             </div>
@@ -235,7 +235,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-hidden focus:ring-2 focus:ring-primary/30 transition-all resize-none"
                 placeholder={t('contact.form.messagePlaceholder')}
               />
             </div>

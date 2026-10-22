@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import profilePhoto from '@/assets/NataliaMordach.jpg';
-import masterCert from '@/assets/Master.png';
-import annaFreudCert from '@/assets/AnnaFreud.png';
-import zswppDyplom from '@/assets/ZSWPP-Dyplom.png';
-import zswppZ from '@/assets/ZSWPP-Z.png';
+import masterCert from '@/assets/Master.webp';
+import annaFreudCert from '@/assets/AnnaFreud.webp';
+import zswppDyplom from '@/assets/ZSWPP-Dyplom.webp';
+import zswppZ from '@/assets/ZSWPP-Z.webp';
 import {
   Carousel,
   CarouselContent,
@@ -96,7 +96,7 @@ const About = () => {
                     <div className="p-1">
                       <div className="bg-card rounded-lg overflow-hidden shadow-elevated hover:shadow-elevated-hover transition-shadow duration-300">
                         {/* Certificate image */}
-                        <div className="aspect-[4/3] bg-secondary/10 overflow-hidden">
+                        <div className="aspect-4/3 bg-secondary/10 overflow-hidden">
                           {/* Bolt Optimization: Lazy load heavy certificate images (~2.4MB total) */}
                           <img
                             src={certificateImages[certKey]}
