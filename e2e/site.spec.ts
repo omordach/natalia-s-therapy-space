@@ -91,3 +91,15 @@ test("renders design-token styles", async ({ page }) => {
   const body = await page.locator("#oferta .text-body").first().evaluate((el) => getComputedStyle(el).lineHeight);
   expect(body).toBe("28px");
 });
+
+test("loads the Google Maps embed and web fonts under the CSP", async ({ page }) => {
+  await page.locator("#lokalizacja iframe").scrollIntoViewIfNeeded();
+  await expect
+    .poll(() => page.frames().some((f) => f.url().startsWith("https://www.google.com/maps/embed")))
+    .toBe(true);
+  const loadedFamilies = await page.evaluate(async () => {
+    await document.fonts.ready;
+    return [...document.fonts].filter((f) => f.status === "loaded").map((f) => f.family.replace(/"/g, ""));
+  });
+  expect(loadedFamilies).toEqual(expect.arrayContaining(["Cormorant Garamond", "Inter"]));
+});

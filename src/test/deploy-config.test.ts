@@ -46,3 +46,28 @@ describe("Netlify response headers", () => {
     expect(headersFor("/assets/*")["Cache-Control"]).toBe("public, max-age=31536000, immutable");
   });
 });
+
+describe("Content-Security-Policy", () => {
+  const csp = headersFor("/*")["Content-Security-Policy"] ?? "";
+  const directives = Object.fromEntries(
+    csp
+      .split(";")
+      .map((d) => d.trim().split(/\s+/))
+      .filter(([name]) => name)
+      .map(([name, ...values]) => [name, values]),
+  );
+
+  it("is set on every page with a restrictive default", () => {
+    expect(directives["default-src"]).toEqual(["'self'"]);
+    expect(directives["object-src"]).toEqual(["'none'"]);
+    expect(directives["base-uri"]).toEqual(["'self'"]);
+    expect(directives["frame-ancestors"]).toEqual(["'none'"]);
+    expect(directives["form-action"]).toEqual(["'self'"]);
+  });
+
+  it("does not allow inline or eval'd scripts", () => {
+    expect(directives["script-src"]).toBeDefined();
+    expect(directives["script-src"]).not.toContain("'unsafe-inline'");
+    expect(directives["script-src"]).not.toContain("'unsafe-eval'");
+  });
+});

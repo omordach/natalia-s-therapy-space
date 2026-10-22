@@ -26,7 +26,8 @@ for (const [device, viewport] of Object.entries(viewports)) {
         await section.scrollIntoViewIfNeeded();
         // Let framer-motion entrance animations finish, then keep the fixed header out of the shot.
         await page.waitForTimeout(1500);
-        await page.addStyleTag({ content: "header { visibility: hidden !important; }" });
+        // Set via CSSOM rather than an injected <style>, which the site's CSP blocks.
+        await page.locator("header").evaluate((el) => (el.style.visibility = "hidden"));
         await expect(section).toHaveScreenshot(`${device}-${id}.png`, {
           mask: [page.locator("iframe")],
           animations: "disabled",
