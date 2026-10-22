@@ -99,7 +99,7 @@ if (checkFileExists(indexPath, 'index.html')) {
 
 // Check 3: Check for JavaScript bundles
 console.log('\n📦 Checking JavaScript bundles...');
-import { readdirSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
 try {
   const assetsDir = './dist/assets';
   if (existsSync(assetsDir)) {
@@ -121,6 +121,22 @@ try {
     } else {
       log('warning', 'No CSS files found');
       checks.warnings++;
+    }
+
+    const maxImageKB = 250;
+    const oversizedImages = files
+      .filter(f => /\.(png|jpe?g|webp|avif|gif)$/i.test(f))
+      .map(f => ({ name: f, sizeKB: statSync(join(assetsDir, f)).size / 1024 }))
+      .filter(img => img.sizeKB > maxImageKB);
+
+    if (oversizedImages.length === 0) {
+      log('success', `All bundled images are under ${maxImageKB}KB`);
+      checks.passed++;
+    } else {
+      oversizedImages.forEach(img =>
+        log('error', `${img.name} is ${img.sizeKB.toFixed(0)}KB (budget ${maxImageKB}KB)`)
+      );
+      checks.failed++;
     }
   } else {
     log('error', 'Assets directory not found');
