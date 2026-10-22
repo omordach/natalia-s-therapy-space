@@ -39,3 +39,20 @@ describe("absolute URLs on nataliarainyk.com", () => {
     },
   );
 });
+
+describe("local links in index.html", () => {
+  const html = readFileSync(resolve(root, "index.html"), "utf8");
+  const localRefs = [...html.matchAll(/<(?:link|meta|img)\b[^>]*\b(?:href|src|content)="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((ref) => /^\/?[\w.-]+(\/[\w.-]+)*\.(png|ico|svg|jpe?g|webp|json|txt|xml|webmanifest)$/.test(ref));
+
+  it("are found", () => {
+    expect(localRefs.length).toBeGreaterThan(0);
+  });
+
+  // Vite leaves these untouched, so they must be absolute paths to files in public/.
+  it.each(localRefs)("%s is a root-absolute path to a file in public/", (ref) => {
+    expect(ref.startsWith("/"), "root-absolute").toBe(true);
+    expect(existsSync(join(publicDir, ref)), `public/${ref}`).toBe(true);
+  });
+});
