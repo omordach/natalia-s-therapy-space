@@ -57,9 +57,11 @@ describe("dead code", () => {
 
   it("every runtime dependency is imported by the app", () => {
     const pkg = JSON.parse(readFileSync(resolve(root, "package.json"), "utf8"));
-    const tailwindConfig = readFileSync(resolve(root, "tailwind.config.ts"), "utf8");
+    // Tailwind plugins are loaded from CSS via @plugin.
+    const css = readFileSync(resolve(src, "index.css"), "utf8");
+    const cssPlugins = [...css.matchAll(/@plugin\s+['"]([^'"]+)['"]/g)].map((m) => m[1]);
     const unused = Object.keys(pkg.dependencies ?? {}).filter(
-      (dep) => !packagesUsed.has(dep) && !tailwindConfig.includes(`"${dep}"`) && !tailwindConfig.includes(`'${dep}'`),
+      (dep) => !packagesUsed.has(dep) && !cssPlugins.includes(dep),
     );
     expect(unused).toEqual([]);
   });

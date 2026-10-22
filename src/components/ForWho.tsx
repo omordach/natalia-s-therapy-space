@@ -42,7 +42,7 @@ const ForWho = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex items-center gap-4 bg-card p-5 rounded-xl shadow-soft"
             >
-              <div className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-sage-light flex items-center justify-center shrink-0">
                 <Check className="w-5 h-5 text-primary" />
               </div>
               <span className="text-foreground font-medium">{item}</span>

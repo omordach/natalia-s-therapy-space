@@ -67,3 +67,22 @@ test("mobile menu opens and navigates", async ({ page }) => {
   await expect(page.locator("#oferta h2")).toBeInViewport();
   await expect(mobileNav).toBeHidden();
 });
+
+test("renders design-token styles", async ({ page }) => {
+  // Custom shadows come from @theme tokens; a broken token silently computes to "none".
+  for (const selector of [".card-service", ".btn-primary", ".shadow-elevated"]) {
+    const shadow = await page.locator(selector).first().evaluate((el) => getComputedStyle(el).boxShadow);
+    expect(shadow, selector).toMatch(/rgba\(80, 134, 112/);
+  }
+
+  // Hero heading uses leading-none from md up (as it did under Tailwind 3).
+  const h1 = await page.getByRole("heading", { level: 1 }).evaluate((el) => {
+    const cs = getComputedStyle(el);
+    return { fontSize: cs.fontSize, lineHeight: cs.lineHeight };
+  });
+  expect(h1.lineHeight).toBe(h1.fontSize);
+
+  // Body copy keeps the 28px line height from md up.
+  const body = await page.locator("#oferta .text-body").first().evaluate((el) => getComputedStyle(el).lineHeight);
+  expect(body).toBe("28px");
+});
