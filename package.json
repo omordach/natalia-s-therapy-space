@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "health-check": "node health-check.js",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
