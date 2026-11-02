@@ -98,17 +98,17 @@
       "individual": {
         "title": "Індивідуальна сесія",
         "duration": "50 хв",
-        "price": "190 zł"
+        "price": "220 zł"
       },
       "consultation": {
         "title": "Первинна консультація",
         "duration": "50 хв",
-        "price": "190 zł"
+        "price": "220 zł"
       },
       "online": {
         "title": "Онлайн-сесія",
         "duration": "50 хв",
-        "price": "190 zł"
+        "price": "170 zł"
       }
     }
   },

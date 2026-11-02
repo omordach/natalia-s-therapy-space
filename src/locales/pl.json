@@ -98,17 +98,17 @@
       "individual": {
         "title": "Sesja indywidualna",
         "duration": "50 min",
-        "price": "190 zł"
+        "price": "220 zł"
       },
       "consultation": {
         "title": "Konsultacja wstępna",
         "duration": "50 min",
-        "price": "190 zł"
+        "price": "220 zł"
       },
       "online": {
         "title": "Sesja online",
         "duration": "50 min",
-        "price": "190 zł"
+        "price": "170 zł"
       }
     }
   },
