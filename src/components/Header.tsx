@@ -9,7 +9,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Navigation items with translation keys - section IDs remain constant (Requirement 6.2)
+  // Navigation items with translation keys - section ids stay Polish in every locale
   const navItems = [
     { href: '#o-mnie', labelKey: 'nav.about' },
     { href: '#oferta', labelKey: 'nav.services' },
@@ -23,7 +23,8 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -58,9 +59,12 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
           className="lg:hidden p-2 text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Menu"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-label={t('a11y.menu')}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-nav"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -70,6 +74,7 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.nav
+            id="mobile-nav"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

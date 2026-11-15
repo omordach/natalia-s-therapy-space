@@ -24,7 +24,7 @@ test("serves netlify.toml headers in the test server", async ({ page }) => {
 test("switches language and remembers it", async ({ page }) => {
   const nav = page.locator("header nav").first();
   await expect(nav.getByRole("link", { name: "O mnie" })).toBeVisible();
-  await nav.getByRole("button", { name: "Switch to Українська" }).click();
+  await nav.getByRole("button", { name: "Українська" }).click();
   await expect(nav.getByRole("link", { name: "Про мене" })).toBeVisible();
   await page.reload();
   await expect(page.locator("header nav").first().getByRole("link", { name: "Про мене" })).toBeVisible();

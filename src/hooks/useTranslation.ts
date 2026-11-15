@@ -4,7 +4,6 @@ import { LocalizationContext } from '@/contexts/LocalizationContext';
 /**
  * Custom hook for accessing localization functionality.
  * Provides the translation function, current locale, and locale setter.
- * Requirements: 1.2
  *
  * @returns {Object} Object containing:
  *   - t: Translation function that accepts a key and optional params
