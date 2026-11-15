@@ -1,6 +1,4 @@
 // Locale type definitions and configuration
-// Requirements: 5.1, 5.2
-
 export type Locale = 'pl' | 'uk';
 
 export interface LocaleConfig {

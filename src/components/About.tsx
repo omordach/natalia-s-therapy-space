@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import profilePhoto from '@/assets/NataliaMordach.jpg';
 import masterCert from '@/assets/Master.webp';
@@ -97,7 +96,7 @@ const About = () => {
                       <div className="bg-card rounded-lg overflow-hidden shadow-elevated hover:shadow-elevated-hover transition-shadow duration-300">
                         {/* Certificate image */}
                         <div className="aspect-4/3 bg-secondary/10 overflow-hidden">
-                          {/* Bolt Optimization: Lazy load heavy certificate images (~2.4MB total) */}
+                          {/* Bolt Optimization: Lazy load below-the-fold certificate images */}
                           <img
                             src={certificateImages[certKey]}
                             alt={t(`about.certifications.${certKey}.title`)}

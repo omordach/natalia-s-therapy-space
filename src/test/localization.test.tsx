@@ -50,6 +50,14 @@ describe("LocalizationProvider", () => {
     expect(localStorage.getItem(STORAGE_KEY)).toBe("uk");
   });
 
+  it("keeps <html lang> in sync with the locale", () => {
+    setBrowserLanguage("pl-PL");
+    const { result } = renderHook(() => useTranslation(), { wrapper });
+    expect(document.documentElement.lang).toBe("pl");
+    act(() => result.current.setLocale("uk"));
+    expect(document.documentElement.lang).toBe("uk");
+  });
+
   it("resolves dot-notation keys, interpolates params and falls back to the key", () => {
     setBrowserLanguage("pl-PL");
     const { result } = renderHook(() => useTranslation(), { wrapper });

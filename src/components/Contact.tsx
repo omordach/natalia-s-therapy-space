@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, Send, MessageCircle, Facebook, Loader2 } from 'lucide-react';
+import { Phone, Send, MessageCircle, Facebook, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
 
@@ -54,7 +53,7 @@ const Contact = () => {
       } else {
         throw new Error('Form submission failed');
       }
-    } catch (error) {
+    } catch {
       toast({
         title: t('contact.toast.errorTitle'),
         description: t('contact.toast.errorDescription'),
@@ -68,7 +67,8 @@ const Contact = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -98,15 +98,6 @@ const Contact = () => {
             <div>
               <h3 className="heading-card text-foreground mb-6">{t('contact.infoTitle')}</h3>
               <div className="space-y-4">
-                {/* <a
-                  href="mailto:taska.mail@gmail.com"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <div className="w-12 h-12 rounded-full bg-sage-light flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  <span>taska.mail@gmail.com</span>
-                </a> */}
                 <a
                   href="tel:+48785422814"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"

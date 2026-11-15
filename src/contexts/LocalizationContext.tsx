@@ -14,7 +14,6 @@ export const LocalizationContext = createContext<LocalizationContextType | undef
 /**
  * Detects the browser's preferred language and maps it to a supported locale.
  * Returns the default locale if no match is found.
- * Requirements: 2.1, 2.2, 2.3
  */
 function detectBrowserLocale(): Locale {
   if (typeof navigator === 'undefined') {
@@ -32,7 +31,6 @@ function detectBrowserLocale(): Locale {
 
 /**
  * Gets the initial locale from localStorage or browser detection.
- * Requirements: 1.3, 1.4, 2.1, 2.2, 2.3
  */
 function getInitialLocale(): Locale {
   // First, try to get from localStorage
@@ -72,7 +70,6 @@ function getNestedValue(obj: Record<string, unknown>, key: string): string | und
 /**
  * Interpolates parameters into a translation string.
  * Replaces {{key}} patterns with corresponding values from params.
- * Requirements: 5.3
  */
 function interpolate(text: string, params?: Record<string, string | number>): string {
   if (!params) return text;
@@ -90,14 +87,13 @@ interface LocalizationProviderProps {
 /**
  * LocalizationProvider component that manages locale state and provides
  * translation functionality to the application.
- * Requirements: 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 5.3
  */
 export function LocalizationProvider({ children }: LocalizationProviderProps) {
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
 
-  // Persist locale to localStorage when it changes
-  // Requirements: 1.3
+  // Keep <html lang> in sync (screen readers, hyphenation) and persist the choice.
   useEffect(() => {
+    document.documentElement.lang = locale;
     try {
       localStorage.setItem(STORAGE_KEY, locale);
     } catch {
@@ -106,7 +102,6 @@ export function LocalizationProvider({ children }: LocalizationProviderProps) {
   }, [locale]);
 
   // setLocale function that validates and updates the locale
-  // Requirements: 1.2
   const setLocale = useCallback((newLocale: Locale) => {
     if (SUPPORTED_LOCALES.some((loc) => loc.code === newLocale)) {
       setLocaleState(newLocale);
@@ -117,7 +112,6 @@ export function LocalizationProvider({ children }: LocalizationProviderProps) {
   }, []);
 
   // Translation function with interpolation support
-  // Requirements: 5.3
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
       const translation = getNestedValue(
