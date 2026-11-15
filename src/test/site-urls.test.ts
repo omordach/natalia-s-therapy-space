@@ -18,13 +18,13 @@ const sources = [
 ];
 
 const ownUrls = sources.flatMap((file) =>
-  [...readFileSync(file, "utf8").matchAll(/https:\/\/nataliarainyk\.com(\/[^\s"'<>)]*)?/g)].map((m) => ({
+  [...readFileSync(file, "utf8").matchAll(/https:\/\/nataliamordach\.com(\/[^\s"'<>)]*)?/g)].map((m) => ({
     file: file.replace(`${root}/`, ""),
     path: m[1] ?? "/",
   })),
 );
 
-describe("absolute URLs on nataliarainyk.com", () => {
+describe("absolute URLs on nataliamordach.com", () => {
   it("are found in the site metadata", () => {
     expect(ownUrls.length).toBeGreaterThan(0);
   });
