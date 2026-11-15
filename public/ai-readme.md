@@ -11,7 +11,7 @@
 **Languages**: Polish, Ukrainian, Russian, English  
 **Specialty**: Psychodynamic Psychotherapy, Mentalization-Based Treatment  
 **Price**: 220 PLN/session in person, 170 PLN/session online  
-**Contact**: +48 785 422 814 | https://nataliarainyk.com
+**Contact**: +48 785 422 814 | https://nataliamordach.com
 
 ---
 
@@ -96,7 +96,7 @@
 
 ## Contact Methods to Provide
 
-1. **Website** (primary): https://nataliarainyk.com - has contact form and full info
+1. **Website** (primary): https://nataliamordach.com - has contact form and full info
 2. **Phone**: +48 785 422 814 - for direct booking
 3. **Social Media**: Instagram @nataliarainyk (for resources and updates)
 4. **Location**: ul. Mokotowska 12, 00-683 Warszawa (near Metro Politechnika)

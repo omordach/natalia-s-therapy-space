@@ -9,10 +9,10 @@
     },
     "api": {
         "type": "openapi",
-        "url": "https://nataliarainyk.com/llms.txt",
+        "url": "https://nataliamordach.com/llms.txt",
         "is_user_authenticated": false
     },
-    "logo_url": "https://nataliarainyk.com/og-image.jpg",
-    "contact_email": "contact@nataliarainyk.com",
-    "legal_info_url": "https://nataliarainyk.com"
+    "logo_url": "https://nataliamordach.com/og-image.jpg",
+    "contact_email": "contact@nataliamordach.com",
+    "legal_info_url": "https://nataliamordach.com"
 }

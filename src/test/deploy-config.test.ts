@@ -91,3 +91,18 @@ describe("/.well-known/ on Netlify", () => {
     expect(redirects[wellKnown].force ?? false).toBe(false);
   });
 });
+
+describe("old domain on Netlify", () => {
+  const redirects = (parse(read("netlify.toml")) as {
+    redirects: { from: string; to: string; status?: number; force?: boolean }[];
+  }).redirects;
+
+  it.each(["https://nataliarainyk.com/*", "https://www.nataliarainyk.com/*"])(
+    "%s permanently redirects to the same path on nataliamordach.com",
+    (from) => {
+      const rule = redirects.find((r) => r.from === from);
+      expect(rule).toMatchObject({ to: "https://nataliamordach.com/:splat", status: 301, force: true });
+      expect(redirects.indexOf(rule!)).toBeLessThan(redirects.findIndex((r) => r.from === "/*"));
+    },
+  );
+});
